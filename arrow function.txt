@@ -1,0 +1,98 @@
+//Do the below programs in arrow functions
+
+a.Print odd numbers in an array
+
+var arr = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+
+var OddNumber=(arr)=>{
+
+    let odds = arr.filter(n => n%2)
+
+    console.log(odds)
+
+};
+
+   OddNumber(arr);
+
+output:
+
+PS C:\Users\mypc\Desktop\guvi practice> node script.js
+[
+  1,  3,  5,  7,
+  9, 11, 13, 15
+]
+
+b.Convert all the strings to title caps in a string array
+
+const myMsg="hello world";
+ var titleCase=(msg)=>{
+  return msg.split(' ').map(word=>word.charAt(0).toUpperCase()+word.substr(1).toLowerCase()).join(' ');;
+  }
+  console.log(titleCase(myMsg));
+
+output:
+PS C:\Users\mypc\Desktop\guvi practice> node script.js
+Hello World
+
+d.Return all the prime numbers in an array
+const array1 = [1,2,3,4,5,6,7,8,9,10,11];
+
+var isPrime = (num)=>{
+
+   for (let start = 2; num > start; start++) {
+ 
+     if (num % start == 0) {
+ 
+       return false;
+ 
+     }
+ 
+   }
+ 
+   return num > 1;
+ 
+ }
+ 
+ console.log(array1.filter(isPrime));
+ 
+ output:
+PS C:\Users\mypc\Desktop\guvi practice> node script.js
+[ 2, 3, 5, 7, 11 ]
+
+
+c.Sum of all numbers in an array
+CODE:
+add = function(arr) {
+	return arr.reduce((a, b) => a + b, 0);
+};
+
+var arr = [3, 6, 1, 5, 8];
+
+var sum = add(arr);
+console.log(sum)
+
+OUTPUT
+PS C:\Users\mypc\Desktop\guvi practice> node script.js
+23
+
+e.Return all the palindromes in an array
+
+
+var isPalindrome=(word)=> {
+   const firstHalf = word.slice(0, Math.ceil(word.length/2));
+   const secondHalfReversed = word.slice(Math.floor(word.length/2)).split('').reverse().join('');
+
+   return firstHalf === secondHalfReversed;
+}
+
+function getPalindromesFromArray(arr) {
+   return arr.filter(isPalindrome);
+}
+
+const wordsArr = ['121', 'racecar', 'pineapple', 'liril', '22022022', 'anitha'];
+
+console.log(getPalindromesFromArray(wordsArr));
+
+output:
+PS C:\Users\mypc\Desktop\guvi practice> node script.js
+[ '121', 'racecar', 'liril', '22022022' ]

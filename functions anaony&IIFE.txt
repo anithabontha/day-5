@@ -1,0 +1,352 @@
+1.Do the below programs in anonymous function & IIFE
+   a. Print odd numbers in an array
+IIFE
+(function (arr) {
+    let odd=[];
+    for (let i in arr) {
+        if(arr[i]%2===1){
+            odd.push(arr[i]);
+        }
+    }
+
+
+console.table(odd);
+})([1,2,3,4,5,6,7,8,9,10]);
+
+output:
+PS C:\Users\mypc\Desktop\guvi practice> node script.js
++------------------+
+¦ (index) ¦ Values ¦
++---------+--------¦
+¦    0    ¦   1    ¦
+¦    1    ¦   3    ¦
+¦    2    ¦   5    ¦
+¦    3    ¦   7    ¦
+¦    4    ¦   9    ¦
+
+
+using anonymous
+let a =function (arr) {
+    let odd=[];
+    for (let i in arr) {
+        if(arr[i]%2===1){
+            odd.push(arr[i]);
+        }
+    }
+
+
+console.table(odd);
+}([1,2,3,4,5,6,7,8,9,10]);
+
+output:
+PS C:\Users\mypc\Desktop\guvi practice> node script.js
++------------------+
+¦ (index) ¦ Values ¦
++---------+--------¦
+¦    0    ¦   1    ¦
+¦    1    ¦   3    ¦
+¦    2    ¦   5    ¦
+¦    3    ¦   7    ¦
+¦    4    ¦   9    ¦
+
+b. Convert all the strings to title caps in a string array
+// using anonymous function
+
+
+const myMsg="i am full stack developer";
+function titleCase(msg){
+ return msg.split(' ').map(word=>word.charAt(0).toUpperCase()+word.substr(1).toLowerCase()).join(' ');;
+ }
+ console.log(titleCase(myMsg));
+
+
+OUTPUT
+PS C:\Users\mypc\Desktop\guvi practice> node script.js
+I Am Full Stack Developer
+// USING IIFE
+
+(()=>{
+const myMsg="i am full stack developer";
+function titleCase(msg){
+ return msg.split(' ').map(word=>word.charAt(0).toUpperCase()+word.substr(1).toLowerCase()).join(' ');;
+ }
+ console.log(titleCase(myMsg));
+
+
+})();
+OUTPUT:
+PS C:\Users\mypc\Desktop\guvi practice> node script.js
+I Am Full Stack Developer
+
+c.Sum of all numbers in an array
+// using anonymous function
+var getsum=function(arr){
+    var sum = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+        sum += arr[i];
+    }
+    console.log(sum)
+};getsum([4,8,7,13,12]);
+
+OUTPUT:
+PS C:\Users\mypc\Desktop\guvi practice> node script.js
+44
+// using IIFE
+
+(function(){
+ 
+    var b=[1,2,3,4]
+
+    var total1=0;
+
+    for(var i in b) {
+
+        total1 += b[i];
+
+    }
+
+    console.log(total1)
+
+})();
+OUTPUT:
+PS C:\Users\mypc\Desktop\guvi practice> node script.js
+1
+
+D.Return all the prime numbers in an array
+
+// ANONYMOUS FUNCTION
+
+var primeArray = [2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+primeArray = primeArray.filter((number) => {
+  for (var i = 2; i <= Math.sqrt(number); i++) {
+    if (number % i === 0) return false;
+  }
+  return true;
+});
+
+console.log(primeArray);
+
+Output:
+[ 2, 3, 5, 7 ]
+
+// USING IIFE
+
+(()=>{
+var primeArray = [2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+primeArray = primeArray.filter((number) => {
+  for (var i = 2; i <= Math.sqrt(number); i++) {
+    if (number % i === 0) return false;
+  }
+  return true;
+});
+
+console.log(primeArray);
+
+})();
+Output:
+[ 2, 3, 5, 7 ]
+
+
+e.Return all the palindromes in an array
+//anonumous fucntion
+
+function isPalindrome(word) {
+        const firstHalf = word.slice(0, Math.ceil(word.length/2));
+        const secondHalfReversed = word.slice(Math.floor(word.length/2)).split('').reverse().join('');
+
+        return firstHalf === secondHalfReversed;
+    }
+
+    function getPalindromesFromArray(arr) {
+        return arr.filter(isPalindrome);
+    }
+
+    const wordsArr = ['121', 'racecar', 'pineapple', 'liril', '22022022', 'anitha'];
+
+    console.log(getPalindromesFromArray(wordsArr));
+
+Output:
+[ '121', 'racecar', 'liril', '22022022' ]
+
+
+//usig IIFE
+
+ (()=>{
+function isPalindrome(word) {
+        const firstHalf = word.slice(0, Math.ceil(word.length/2));
+        const secondHalfReversed = word.slice(Math.floor(word.length/2)).split('').reverse().join('');
+
+        return firstHalf === secondHalfReversed;
+    }
+
+    function getPalindromesFromArray(arr) {
+        return arr.filter(isPalindrome);
+    }
+
+    const wordsArr = ['121', 'racecar', 'pineapple', 'liril', '22022022', 'anitha'];
+
+    console.log(getPalindromesFromArray(wordsArr));
+    
+    })();
+
+Output:
+[ '121', 'racecar', 'liril', '22022022' ]
+
+f.Return median of two sorted arrays of the same size
+
+//Return median of two sorted arrays of same size in anonymous function
+
+
+
+
+function median(a, b){
+
+    let c = [...a, ...b].sort((a, b) => a - b);
+
+    const half = c.length / 2 | 0;
+
+    if (c.length % 2)
+
+    return c[half];
+
+    return (c[half] + c[half - 1]) / 2;
+
+}
+
+const arr1 = [1, 12, 15, 26, 38];
+
+const arr2 = [2, 13, 17, 30, 45];
+
+console.log(median(arr1, arr2));
+
+Output:
+16
+
+//Return median of two sorted arrays of same size in IIFE function
+
+(() => {
+
+const median = (a, b) => {
+
+    let c = [...a, ...b].sort((a, b) => a - b);
+
+    const half = c.length / 2 | 0;
+
+    if (c.length % 2)
+
+    return c[half];
+
+    return (c[half] + c[half - 1]) / 2;
+
+}
+
+const arr1 = [1, 12, 15, 26, 38];
+
+const arr2 = [2, 13, 17, 30, 45];
+
+console.log(median(arr1, arr2));
+
+})();
+
+Output:
+16
+
+
+G. Remove duplicates from an array
+
+
+const input = [1, 2, 3, 3, 4, 5,2, 6,3,6,1];
+
+function removeDuplicate(arr) {
+    const result = [];
+    let idx = 0;
+    const tmp = {};
+
+    for (let i = 0; i < arr.length; i++) {
+        if (!tmp[arr[i]]) {
+            tmp[arr[i]] = 1;
+            result[idx] = arr[i];
+            idx++;
+        } 
+    }
+    return result;
+}
+
+console.log(removeDuplicate(input));
+
+Output:
+[ 1, 2, 3, 4, 5, 6 ]
+
+// IIFE
+
+
+ (()=>{
+const input = [1, 2, 3, 3, 4, 5,2, 6,3,6,1];
+
+function removeDuplicate(arr) {
+    const result = [];
+    let idx = 0;
+    const tmp = {};
+
+    for (let i = 0; i < arr.length; i++) {
+        if (!tmp[arr[i]]) {
+            tmp[arr[i]] = 1;
+            result[idx] = arr[i];
+            idx++;
+        } 
+    }
+    return result;
+}
+
+console.log(removeDuplicate(input));
+
+})();
+
+Output:
+[ 1, 2, 3, 4, 5, 6 ]
+
+h.Rotate an array by k times
+
+
+function rotateArray(arr,k){
+    for(let i=0;i<k;i++){
+    let temp=arr[0];
+    for(let j=0;j<arr.length;j++){
+    arr[i]=arr[i+1];
+    }
+    arr[arr.length-1]=temp;
+    }
+    return arr;
+    }
+    let arr=[1,2,3,4,5]
+    k=2;
+    console.log(rotateArray(arr,k))
+
+output:
+PS C:\Users\mypc\Desktop\guvi practice> node script.js
+[ 2, 3, 3, 4, 2 ]
+
+//using IIFE
+
+(()=>{
+function rotateArray(arr,k){
+    for(let i=0;i<k;i++){
+    let temp=arr[0];
+    for(let j=0;j<arr.length;j++){
+    arr[i]=arr[i+1];
+    }
+    arr[arr.length-1]=temp;
+    }
+    return arr;
+    }
+    let arr=[1,2,3,4,5]
+    k=2;
+    console.log(rotateArray(arr,k))
+   })();
+
+output:
+PS C:\Users\mypc\Desktop\guvi practice> node script.js
+[ 2, 3, 3, 4, 2 ]
